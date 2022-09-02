@@ -57,12 +57,12 @@ function generatePassword() {
     if (numberLine) {
       chooseCharac = chooseCharac + "123456789"
     }
+    console.log(numberLine)
     if (keyboardCharacters) {
       chooseCharac = chooseCharac + "~!@#$%^&*-_"
       console.log(keyboardCharacters);
     }
     
-    console.log(numberLine)
     for (var i = 0; i < parseInt(desiredPasswordLength); i++) {//help from Paul TA
       
       //get a random index based on the length of the character bank and use that to select one character from that bank and then concatenate it onto the password
