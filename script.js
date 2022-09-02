@@ -37,46 +37,60 @@ function generatePassword() {
   // WHEN prompted for the length of the password
   // THEN I choose a length of at least 8 characters and no more than 128 characters
   //ask what the length should be 
+  //answer nedds to be between 8 to 128 characters
   var desiredPasswordLength = prompt("How long do you want the password to be? Must be between 8 - 128 characters long");//help from Paul TA
-  if ((parseInt(desiredPasswordLength) >= 8) && parseInt(desiredPasswordLength) <= 128) {
+  if ((parseInt(desiredPasswordLength) >= 8) && parseInt(desiredPasswordLength) <= 128) {//help from TA Paul
 
-    //answer nedds to be between 8 to 128 characters
     console.log(desiredPasswordLength);
     console.log(chooseCharac);
     //check to see if uppercase characters was desired and add the characters to the bank of available characters
+    //check to see if lowercase characters was desired and add the characters to the bank of available characters
     if (upperLetters) {
       chooseCharac = chooseCharac + "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     }
-
-    console.log(chooseCharac);
-    //check to see if lowercase characters was desired and add the characters to the bank of available characters
+    console.log(upperLetters);
     if (lowLetters) {
-      chooseCharac = chooseCharac + "abcdefghijklmnopqrstuvwxyz"//for future reference can use ".toLowerCase();"
+      chooseCharac = chooseCharac + "abcdefghijklmnopqrstuvwxyz"//for future reference can use ".toLowerCase();" help from TA Paul
     }
+    console.log(lowLetters);
 
-    console.log(chooseCharac);
-
+    if (numberLine) {
+      chooseCharac = chooseCharac + "123456789"
+    }
+    if (keyboardCharacters) {
+      chooseCharac = chooseCharac + "~!@#$%^&*-_"
+      console.log(keyboardCharacters);
+    }
+    
+    console.log(numberLine)
     for (var i = 0; i < parseInt(desiredPasswordLength); i++) {//help from Paul TA
+      
       //get a random index based on the length of the character bank and use that to select one character from that bank and then concatenate it onto the password
-      var randomIndex = Math.floor(Math.random() * chooseCharac.length);
+      var randomIndex = Math.floor(Math.random() * chooseCharac.length);//help from TA Paul
       console.log(randomIndex);
       var randomCharacter = chooseCharac[randomIndex];
       console.log(randomCharacter);
       completedPassword = completedPassword + randomCharacter;//help from Paul TA
       console.log(completedPassword);
     }
+    
     // WHEN I answer each prompt
     // THEN my input should be validated and at least one character type should be selected
     //all prompts anwered---verify that atleast one character type is chosen
-
+    
     // WHEN all prompts are answered
     // THEN a password is generated that matches the selected criteria
+    
     //return completed password
     return completedPassword;
   } else {
     //they enter the incorrect size
-    alert("The length needs to be a number between 8 and 128");
+    alert("Please choose between 8 and 128 for length of password");
+    alert("Please choose either upper-case, lower-case, special character or number for password, or try again");
     return "";
     // generatePassword();
   }
 }
+// if (chooseCharac != chooseCharac) {
+//   console.log( chooseCharac)
+  // }
